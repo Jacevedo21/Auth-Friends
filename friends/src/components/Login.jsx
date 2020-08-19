@@ -47,7 +47,9 @@ export default function Login(props) {
             onChange={e => handleChange(e)}
           />
         </div>
+        <div className="inputContainer button">
           <input type="submit" value="Log In" />
+        </div>
       </form>
     </div>
 

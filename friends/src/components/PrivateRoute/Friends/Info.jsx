@@ -1,5 +1,4 @@
 import React from 'react'
-import axiosWithAuth from '../utils/axiosWithAuth'
 
 export default function Card(props) {
   const { friend } = props;

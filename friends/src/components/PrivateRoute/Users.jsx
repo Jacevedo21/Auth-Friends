@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import axiosWithAuth from '../utils/axiosWithAuth'
-import Info from './Info'
-import Add from './Add'
+import axiosWithAuth from '../../utils/axiosWithAuth'
+import Info from './Friends/Info'
+import Add from './Friends/Add'
 
 export default function Members() {
   const [friends, setFriends] = useState([])

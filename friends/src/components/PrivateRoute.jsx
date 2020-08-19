@@ -8,41 +8,13 @@ import Login from './Login'
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return <Route
     {...rest}
-    render={props => {
-      return localStorage.getItem('token') ? (
-        <Component {...props} />
-      ) : (
-          <Redirect to="/login" />
-        )
+    render={(props) => {
+      if(localStorage.getItem("token")) {
+        return <Component {...props} />;
+      } else {
+        return <Redirect to="/login" />
+      }
     }}
   />
 }
-
-export const loginState = (props) => {
-  const [loggedState, setLoggedState] = useState(false || JSON.parse(localStorage.getItem('loggedState')))
-  const logOut = () => {
-    console.log("log out");
-    localStorage.removeItem('token')
-    localStorage.setItem('loggedState', false)
-  }
-
-
-  return (
-    <div>
-      <nav className="navbar">
-        <ul>
-          <li>
-            <Link to={loginState ? "/users" : "/"}>AB</Link>
-          </li>
-          <li>
-            {loggedState ? <a onClick={() => logOut()} href="/">Sign Out</a> : <Link to="/users">Sign In</Link>}
-          </li>
-        </ul>
-      </nav>
-      <Switch>
-        <Route path="/login" render={(props)=> <Login setLoggedState={setLoggedState} {...props}/>} />
-        <PrivateRoute path="/members" component={Users} />
-      </Switch>
-    </div>
-  )
-}
+export default PrivateRoute

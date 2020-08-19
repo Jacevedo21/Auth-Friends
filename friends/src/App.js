@@ -1,6 +1,5 @@
 import React from 'react';
-import { Nav } from './components/PrivateRoute';
-
+import { Nav } from './components/Nav/Nav';
 
 function App() {
   return (
